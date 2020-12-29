@@ -2,3 +2,5 @@
 title: My Portfolio
 description: Data Scientist Consultant | Design and develop of machine learning models
 author: Luca Grandinetti
+
+theme: jekyll-theme-cayman
