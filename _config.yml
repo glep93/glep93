@@ -1,7 +1,4 @@
 # Site settings
 title: My Portfolio
 description: Data Scientist Consultant | Design and develop of machine learning models
-keywords:
 author: Luca Grandinetti
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "" # the base hostname & protocol for your site
