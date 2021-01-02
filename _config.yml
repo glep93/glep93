@@ -26,6 +26,12 @@ author: Luca Grandinetti
 
 github_username:  Glep93
 
+
+theme: minima
+# Build settings
+
+markdown: kramdown
+
 plugins:
   - jekyll-feed
 
