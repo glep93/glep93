@@ -15,7 +15,7 @@ play with *chess.com* bots.
 In the last years a lot of presentations about Artificial Intelligence starts with
 a slide with a Venn diagram like the following:
 
-![AI, ML and DL](/images/ai-ml-dl.png)
+![AI, ML and DL](https://glep93.github.io/glep93//images/ai-ml-dl.png)
 
 I don't usually like this Venn diagram, it suggests the existence of AI models that
 are not ML models and it opens up huge futile discussions about what it is and what it isn't.
@@ -36,7 +36,7 @@ conect four, chess or go. Any node in the tree represents a possible configurati
 (and history to arrive at this configuration), the edges represent the
 legal moves leading from one configuration to the next.
 
-![chess tree](/images/chess_Game_tree.svg)
+![chess tree](https://glep93.github.io/glep93/images/chess_Game_tree.svg)
 
 In principle if you can write the entire game tree of a game you have resolve it,
 you can look at the tree to find the best move in any situation. The only problem
