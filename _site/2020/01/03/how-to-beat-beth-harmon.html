@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>How to beat Beth Harmon | Luca Grandinetti’s Portfolio</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="How to beat Beth Harmon" />
+<meta name="author" content="Luca Grandinetti" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="After the success of The queen’s gambit the chess game acquired a new success. The web site chess.com offer the possibility to play with bots that plays like Beth Harmon at different ages. To face this challenge I developed a small chess engine able to play with chess.com bots." />
+<meta property="og:description" content="After the success of The queen’s gambit the chess game acquired a new success. The web site chess.com offer the possibility to play with bots that plays like Beth Harmon at different ages. To face this challenge I developed a small chess engine able to play with chess.com bots." />
+<link rel="canonical" href="http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html" />
+<meta property="og:url" content="http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html" />
+<meta property="og:site_name" content="Luca Grandinetti’s Portfolio" />
+<meta property="og:image" content="http://localhost:4000/images/chess.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-01-03T01:00:00+01:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","image":"http://localhost:4000/images/chess.jpg","url":"http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html","headline":"How to beat Beth Harmon","dateModified":"2020-01-03T01:00:00+01:00","datePublished":"2020-01-03T01:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html"},"author":{"@type":"Person","name":"Luca Grandinetti"},"description":"After the success of The queen’s gambit the chess game acquired a new success. The web site chess.com offer the possibility to play with bots that plays like Beth Harmon at different ages. To face this challenge I developed a small chess engine able to play with chess.com bots.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Luca Grandinetti's Portfolio" /><!-- test -->
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="" />
+</head>
+<body>
+
+<header id="header">
+  <a href= /index.html >
+  <div class="inner">
+    <img  class="image avatar" src="/images/avatar.jpg" alt="" />
+    <h1> <strong> Luca Grandinetti </strong> <br>  Data Scientist Consultant <br> Design and development of machine learning models	</h1>
+    </div>
+  </a>
+</header>
+
+<div id="main">
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">How to beat Beth Harmon</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-01-03T01:00:00+01:00" itemprop="datePublished">Jan 3, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>After the success of <em>The queen’s gambit</em> the chess game acquired a new success. The web
+site <em>chess.com</em> offer the possibility to play with bots that plays like Beth Harmon
+at different ages. To face this challenge I developed a small chess engine able to
+play with <em>chess.com</em> bots.</p>
+
+<h3 id="the-chess-engine">The chess engine</h3>
+
+<p>In the last years a lot of presentations about Artificial Intelligence starts with
+a slide with a Venn diagram like the following:</p>
+
+<p><img src="/images/ai-ml-dl.png" alt="AI, ML and DL" /></p>
+
+<p>I don’t usually like this Venn diagram, it suggests the existence of AI models that
+are not ML models and it opens up huge futile discussions about what it is and what it isn’t.
+Approaching this project I actually found that the <em>classic</em> chess engines are a beautefull
+example of Artificial Intelligence models that are not ML. Indeed, classic chess engines
+are not trained looking on data and so they are clearly <strong>not a machine learning models</strong>.
+However after the appear of <em>Leela Chess Zero</em> in 2018 it appears a new generation of
+chess engine based on deep learning tecniques that learn to play chess looking a huge
+quantity of games.</p>
+
+<p>For this project I focused on classic chess engines similar to Deap Blue, the
+chess computer that beat world champion Garry Kasparov in 1996.</p>
+
+<h4 id="game-tree">Game tree</h4>
+
+<p>A game tree is the representation of all possible matches in a game such as tic-tac-toe,
+conect four, chess or go. Any node in the tree represents a possible configuration of the board
+(and history to arrive at this configuration), the edges represent the
+legal moves leading from one configuration to the next.</p>
+
+<p><img src="/images/chess_Game_tree.svg" alt="chess tree" /></p>
+
+<p>In principle if you can write the entire game tree of a game you have resolve it,
+you can look at the tree to find the best move in any situation. The only problem
+is that the game tree for chess is huge, it is extiamte that it is more then 10<sup>120</sup> (https://en.wikipedia.org/wiki/Shannon_number) considering that extimation of atoms in the universe is  10<sup>80</sup>! So clearly it is not possible to write down the entire chess game
+tree. A solution is to write compute the game tree only for a certain number of possible
+moves from the current position (in 1997 deep blue search to a depth of between 12 and 16 moves).</p>
+
+<p>The leaf of the a game-tree are end-game configurations with the win of one of the two players or a draw.
+If you compute the game tree only at a certain depth you need an <strong>evaluation function</strong>
+to extimate how good is a leaf of the pruned tree.</p>
+
+<h4 id="evaluation-function">Evaluation function</h4>
+
+<p>The evaluation function \[ a^2 = b^2 + c^2 \] is function from chess board configuration set to real numbers.
+Usually it is write in a whay that</p>
+
+  </div><a class="u-url" href="/2020/01/03/how-to-beat-beth-harmon.html" hidden></a>
+</article>
+
+      </div>
+    </main>
+</div>
+
+
+<footer id="footer">
+  <div class="inner">
+    <ul class="icons">
+      <li><a href="https://www.linkedin.com/in/luca-glep-grandinetti/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+      <li><a href="https://github.com/glep93/" class="icon brands fa-github"><span class="label">Github</span></a></li>
+      <li><a href="mailto:luca.glep.grandinetti@gmail.com"  class="icon solid fa-envelope"><span class="label">Github</span></a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src= "https://glep93.github.io/glep93/assets/js/jquery.min.js"        " ></script>
+<script src= "https://glep93.github.io/glep93/assets/js/jquery.poptrox.min.js"" ></script>
+<script src= "https://glep93.github.io/glep93/assets/js/browser.min.js"       " ></script>
+<script src= "https://glep93.github.io/glep93/assets/js/breakpoints.min.js"   " ></script>
+<script src= "https://glep93.github.io/glep93/assets/js/util.js"              " ></script>
+<script src= "https://glep93.github.io/glep93/assets/js/main.js"              " ></script>
+</body>
+
+</html>
