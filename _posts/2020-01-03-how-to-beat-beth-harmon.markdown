@@ -3,6 +3,7 @@ title:  "How to beat Beth Harmon"
 subtitle: "Develop a chess engine and let it play on chess.com"
 image: "images/chess.jpg"
 date:   2020-01-03 00:00:00
+layout: post
 ---
 
 After the success of *The queen's gambit* the chess game acquired a new success. The web
@@ -36,12 +37,16 @@ connect four, chess, or go. Any node in the tree represents a possible configura
 (and history to arrive at this configuration), the edges represent the
 legal moves leading from one configuration to the next.
 
+<figure>
 <img src="https://glep93.github.io/glep93/images/chess_Game_tree.svg" width="100%">
+ <figcaption>First 2 move in chess game.</figcaption>
+ </figure>
+
 
 In principle, if you can write the entire game tree of a game you have just resolved the chess game,
 you can look at the tree to find the best move in any situation. The only problem
 is that the game tree for chess is huge, it is estimated that it is more than 10<sup>120</sup> (https://en.wikipedia.org/wiki/Shannon_number) considering that the estimation of atoms in the universe is  10<sup>80</sup>! So clearly it is not possible to write down the entire chess game
-tree. A solution is to write compute the game tree only for a certain number of possible
+tree. A solution is to compute the game tree only for a certain number of possible
 moves from the current position (in 1997 deep blue search to a depth of between 12 and 16 moves).
 
 The leaves of a game-tree are end-game configurations with the win of one of the two players or a draw.
