@@ -105,11 +105,10 @@ So, with the help of selenium I made my chess engine interface with the site so 
 automatically the two bots can clash.
 
 
-<iframe width="420" height="315"  src="http://www.youtube.com/embed/0v4bmEGi--U"  
-width="100%"
-margin-left="auto"
-margin-right="auto"
- frameborder="0" allowfullscreen></iframe>
+
+<a href= "https://www.youtube.com/watch?v=0v4bmEGi--U" >
+<img src="https://img.youtube.com/vi/0v4bmEGi--U/0.jpg" width="100%">
+ </a>
 <br>
 
 If you would try to beat yourserlf Beth Harmon with python please check
