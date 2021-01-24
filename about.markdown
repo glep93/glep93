@@ -3,6 +3,9 @@ layout: default
 title: About
 permalink: /about/
 ---
+
+# About me
+
 I am a Data Scientis with  background on theoretical physics focus on the design of models at the state of art. I like to develop my models with Python, and I always try to design my software to reduce manual effort. During my professional experience I have worked on all the data path: extraction (web scrapers), cleansing and transformation (ETL), data visualization and models develop.
 
 
