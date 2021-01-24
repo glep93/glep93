@@ -30,6 +30,7 @@ Deloitte Consulting  Analytics & Cognitive <br>
   * B2B propensity model for purchase of charging station
   * CB evolution forecast
   * Analysis of smart meter data
+  
 #### Analyst
 Deloitte Consulting,  Analytics & Cognitive <br>
   2018-2019
