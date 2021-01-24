@@ -101,7 +101,6 @@ difficult evaluate function inspired from [here.](https://www.chessprogramming.o
 
 ### Let's see it in action agains Beth Harmon
 
-The website chess.com offers the possibility to play against bots inspired by Beth Harmon.
 So, with the help of selenium I made my chess engine interface with the site so that
 automatically the two bots can clash. 
 
