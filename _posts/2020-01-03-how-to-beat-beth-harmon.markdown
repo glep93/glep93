@@ -104,7 +104,12 @@ difficult evaluate function inspired from [here.](https://www.chessprogramming.o
 So, with the help of selenium I made my chess engine interface with the site so that
 automatically the two bots can clash.
 
-{% youtube "https://www.youtube.com/watch?v=0v4bmEGi--U" %}
+ <figure>
+<iframe width="420" height="315"  src="http://www.youtube.com/embed/0v4bmEGi--U"  
+width="100%"
+margin-left="auto"
+margin-right="auto"
+ frameborder="0" allowfullscreen></iframe>
 
   <br>
 
