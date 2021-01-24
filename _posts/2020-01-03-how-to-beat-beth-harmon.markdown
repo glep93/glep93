@@ -66,7 +66,7 @@ The moste simple evaluation function can be read as:
 $$f(board) = \begin{cases} \infty, & \mbox{if } \mbox{ white wins}
  						 \\ -\infty , & \mbox{if } \mbox{ balck wins}
  						 \\ 0, & \mbox{if } n\mbox{ draw}
- 						 \\ N_{white}- N_{black},  n\mbox{ else} 
+ 						 \\ N_{white}- N_{black},  n\mbox{ else}
  						  \end{cases} $$
 
 Where  \\(N_{white/black}  \\) are the number of pieces for each player. I actualy use a slightly most
@@ -76,21 +76,21 @@ difficult evaluate function inspired from [here.](https://www.chessprogramming.o
 ### Search algorithm
 
  Now that we have an effective representation of the game and an evaluation function,
-  all that's left is to apply an algorithm that finds the right move to make. 
- 
+  all that's left is to apply an algorithm that finds the right move to make.
+
  I have applied several algorithms for this purpose minmax, alphabet pruning,
-  MTD-inf and MTD-bi, but for the purpose of this article I will just tell you 
-  about minmax. 
- 
+  MTD-inf and MTD-bi, but for the purpose of this article I will just tell you
+  about minmax.
+
  The minmax algorithm is a greedy algorithm that approaches the problem without
- any finesse. The only idea on which it is based is that the white player will 
- make his moves in order to maximize the evaluation function, while the black player 
+ any finesse. The only idea on which it is based is that the white player will
+ make his moves in order to maximize the evaluation function, while the black player
  to minimize.
 
- The first step is to "unfold" the wire tree to the maximum depth we want to reach 
- (in example 4), evaluate the leaves with our evaluation function and then reconstruct 
- the best path from the bottom, remembering that the black player (represented by the 
- diamonds in the graph below) minimizes, while the white player (represented by the 
+ The first step is to "unfold" the wire tree to the maximum depth we want to reach
+ (in example 4), evaluate the leaves with our evaluation function and then reconstruct
+ the best path from the bottom, remembering that the black player (represented by the
+ diamonds in the graph below) minimizes, while the white player (represented by the
  ellipse-shaped nodes) maximizes.
 
  <figure>
@@ -102,16 +102,11 @@ difficult evaluate function inspired from [here.](https://www.chessprogramming.o
 ### Let's see it in action agains Beth Harmon
 
 So, with the help of selenium I made my chess engine interface with the site so that
-automatically the two bots can clash. 
+automatically the two bots can clash.
 
- <figure>
-<iframe width="420" height="315"  src="http://www.youtube.com/embed/0v4bmEGi--U"  
-width="100%" 
-margin-left="auto"
-margin-right="auto"
- frameborder="0" allowfullscreen></iframe>
- </figure>
+{% youtube "https://www.youtube.com/watch?v=0v4bmEGi--U" %}
+
   <br>
 
-If you would try to beat yourserlf Beth Harmon with python please check 
+If you would try to beat yourserlf Beth Harmon with python please check
 [my repository.](https://github.com/glep93/python_chess_engine)
