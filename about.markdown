@@ -30,7 +30,7 @@ Deloitte Consulting  Analytics & Cognitive <br>
   * B2B propensity model for purchase of charging station
   * CB evolution forecast
   * Analysis of smart meter data
-  
+
 #### Analyst
 Deloitte Consulting,  Analytics & Cognitive <br>
   2018-2019
@@ -67,12 +67,12 @@ Critical dynamics of a non-dissipative statistical model for the description of 
 #### B.SC Physics
 Università degli Studi di Milano-Bicocca 2012 - 2015
 
-###### Elective Courses:
+##### Elective Courses:
 * Analisi Numerica
 * Fisica Matematica
 * Elementi di Fisica Teorica
 * Laboratorio di Fisica Computazionale
-###### Thesis:
+##### Thesis:
 Campi di velocità in flussi di materia granulare 108/110
 
 # Skills
@@ -95,8 +95,8 @@ Campi di velocità in flussi di materia granulare 108/110
 
 # Publications
 
-Renormalization group crossover in the critical dynamics of field theories with mode coupling terms (Andrea Cavagna, Luca Di Carlo, Irene Giardina, Luca Grandinetti, Tomas S. Grigera, Giulia Pisegna) Phys. Rev. E 100, 062130 – Published 23 December 2019
-Dynamical renormalization group approach to the collective behaviour of swarms  (Andrea Cavagna, Luca Di Carlo, Irene Giardina, Luca Grandinetti, Tomas S. Grigera, Giulia Pisegna), Phys. Rev. Lett. 123, 268001 – Published 23 December 2019
+* Renormalization group crossover in the critical dynamics of field theories with mode coupling terms (Andrea Cavagna, Luca Di Carlo, Irene Giardina, Luca Grandinetti, Tomas S. Grigera, Giulia Pisegna) Phys. Rev. E 100, 062130 – Published 23 December 2019
+* Dynamical renormalization group approach to the collective behaviour of swarms  (Andrea Cavagna, Luca Di Carlo, Irene Giardina, Luca Grandinetti, Tomas S. Grigera, Giulia Pisegna), Phys. Rev. Lett. 123, 268001 – Published 23 December 2019
 
 <section id="three">
   <h2>Get In Touch</h2>
