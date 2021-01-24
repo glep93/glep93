@@ -21,7 +21,8 @@ a slide with a Venn diagram like the following:
 I don't usually like this Venn diagram, it suggests the existence of AI models that
 are not ML models and it opens up huge futile discussions about what it is and what it isn't ML...
 Approaching this project I found that the *classic* chess engines are a beautiful
-example of Artificial Intelligence models that are not ML. Indeed, classic chess engines
+example of Artificial Intelligence models that are not ML, and almost every one agree about it
+reducing futile discussiona. Indeed, classic chess engines
 are not trained on data and so they are **not machine learning models**.
 However, after the appearance of *Leela Chess Zero* in 2018 it appears a new generation of
 chess engines based on deep learning techniques that learn to play chess looking at a huge
@@ -41,7 +42,7 @@ legal moves leading from one configuration to the next.
 <img src="https://glep93.github.io/glep93/images/chess_Game_tree.svg" width="100%">
  <figcaption>First 2 move in chess game.</figcaption>
  </figure>
-
+  <br>
 
 In principle, if you can write the entire game tree of a game you have just resolved the chess game,
 you can look at the tree to find the best move in any situation. The only problem
@@ -56,7 +57,59 @@ to estimate how good is a leaf of the pruned tree.
 #### Evaluation function
 
 The evaluation function \\( f \\) is function from chess board configuration set \\( B \\) to real numbers \\( R \\).
-Usually it is write in a whay that \\( f(x) > f(y) \\) if \\( x \\) is a better
+Usually it is write in a way that \\( f(x) > f(y) \\) if \\( x \\) is a better
 connfiguration then \\( y \\)  for white, morehover  \\( f(x) \rightarrow \infty \\)
 if \\(x \\) is a winning configuration for white and \\(f(x) \rightarrow -\infty  \\) if it is a winning
 configuration for black.
+The moste simple evaluation function can be read as:
+
+$$f(board) = \begin{cases} \infty, & \mbox{if } \mbox{ white wins}
+ 						 \\ -\infty , & \mbox{if } \mbox{ balck wins}
+ 						 \\ 0, & \mbox{if } n\mbox{ draw}
+ 						 \\ N_{white}- N_{black},  n\mbox{ else} 
+ 						  \end{cases} $$
+
+Where  \\(N_{white/black}  \\) are the number of pieces for each player. I actualy use a slightly most
+difficult evaluate function inspired from [here.](https://www.chessprogramming.org/Simplified_Evaluation_Function)
+
+
+### Search algorithm
+
+ Now that we have an effective representation of the game and an evaluation function,
+  all that's left is to apply an algorithm that finds the right move to make. 
+ 
+ I have applied several algorithms for this purpose minmax, alphabet pruning,
+  MTD-inf and MTD-bi, but for the purpose of this article I will just tell you 
+  about minmax. 
+ 
+ The minmax algorithm is a greedy algorithm that approaches the problem without
+ any finesse. The only idea on which it is based is that the white player will 
+ make his moves in order to maximize the evaluation function, while the black player 
+ to minimize.
+
+ The first step is to "unfold" the wire tree to the maximum depth we want to reach 
+ (in example 4), evaluate the leaves with our evaluation function and then reconstruct 
+ the best path from the bottom, remembering that the black player (represented by the 
+ diamonds in the graph below) minimizes, while the white player (represented by the 
+ ellipse-shaped nodes) maximizes.
+
+ <figure>
+ <img src="/images/minmax_movie.gif" width="100%">
+  <figcaption>min max algorithm example</figcaption>
+  </figure>
+
+
+### Let's see it in action agains Beth Harmon
+
+The website chess.com offers the possibility to play against bots inspired by Beth Harmon.
+So, with the help of selenium I made my chess engine interface with the site so that
+automatically the two bots can clash. 
+
+ <figure>
+ <img src="/images/win_beth_9.gif" width="100%">
+  <figcaption>My algorithm VS Beth Harmon at 9 years old</figcaption>
+  </figure>
+  <br>
+
+If you would try to beat yourserlf Beth Harmon with python please check 
+[my repository.](https://github.com/glep93/python_chess_engine)

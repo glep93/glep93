@@ -17,7 +17,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-01-03T01:00:00+01:00" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html"},"@type":"BlogPosting","image":"http://localhost:4000/images/chess.jpg","url":"http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html","dateModified":"2020-01-03T01:00:00+01:00","datePublished":"2020-01-03T01:00:00+01:00","headline":"How to beat Beth Harmon","author":{"@type":"Person","name":"Luca Grandinetti"},"description":"After the success of The queen’s gambit the chess game acquired a new success. The web site chess.com offers the possibility to play with bots that play like Beth Harmon at different ages. To face this challenge I developed a small chess engine able to play with chess.com bots.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html","image":"http://localhost:4000/images/chess.jpg","headline":"How to beat Beth Harmon","dateModified":"2020-01-03T01:00:00+01:00","datePublished":"2020-01-03T01:00:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html"},"author":{"@type":"Person","name":"Luca Grandinetti"},"description":"After the success of The queen’s gambit the chess game acquired a new success. The web site chess.com offers the possibility to play with bots that play like Beth Harmon at different ages. To face this challenge I developed a small chess engine able to play with chess.com bots.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Luca Grandinetti's Portfolio" /><!-- custom head -->
 
@@ -63,7 +63,8 @@ a slide with a Venn diagram like the following:</p>
 <p>I don’t usually like this Venn diagram, it suggests the existence of AI models that
 are not ML models and it opens up huge futile discussions about what it is and what it isn’t ML…
 Approaching this project I found that the <em>classic</em> chess engines are a beautiful
-example of Artificial Intelligence models that are not ML. Indeed, classic chess engines
+example of Artificial Intelligence models that are not ML, and almost every one agree about it
+reducing futile discussiona. Indeed, classic chess engines
 are not trained on data and so they are <strong>not machine learning models</strong>.
 However, after the appearance of <em>Leela Chess Zero</em> in 2018 it appears a new generation of
 chess engines based on deep learning techniques that learn to play chess looking at a huge
@@ -83,6 +84,7 @@ legal moves leading from one configuration to the next.</p>
 <img src="https://glep93.github.io/glep93/images/chess_Game_tree.svg" width="100%" />
  <figcaption>First 2 move in chess game.</figcaption>
  </figure>
+<p><br /></p>
 
 <p>In principle, if you can write the entire game tree of a game you have just resolved the chess game,
 you can look at the tree to find the best move in any situation. The only problem
@@ -97,10 +99,60 @@ to estimate how good is a leaf of the pruned tree.</p>
 <h4 id="evaluation-function">Evaluation function</h4>
 
 <p>The evaluation function \( f \) is function from chess board configuration set \( B \) to real numbers \( R \).
-Usually it is write in a whay that \( f(x) &gt; f(y) \) if \( x \) is a better
+Usually it is write in a way that \( f(x) &gt; f(y) \) if \( x \) is a better
 connfiguration then \( y \)  for white, morehover  \( f(x) \rightarrow \infty \)
 if \(x \) is a winning configuration for white and \(f(x) \rightarrow -\infty  \) if it is a winning
-configuration for black.</p>
+configuration for black.
+The moste simple evaluation function can be read as:</p>
+
+\[f(board) = \begin{cases} \infty, &amp; \mbox{if } \mbox{ white wins}
+ 						 \\ -\infty , &amp; \mbox{if } \mbox{ balck wins}
+ 						 \\ 0, &amp; \mbox{if } n\mbox{ draw}
+ 						 \\ N_{white}- N_{black},  n\mbox{ else} 
+ 						  \end{cases}\]
+
+<p>Where  \(N_{white/black}  \) are the number of pieces for each player. I actualy use a slightly most
+difficult evaluate function inspired from <a href="https://www.chessprogramming.org/Simplified_Evaluation_Function">here.</a></p>
+
+<h3 id="search-algorithm">Search algorithm</h3>
+
+<p>Now that we have an effective representation of the game and an evaluation function,
+  all that’s left is to apply an algorithm that finds the right move to make.</p>
+
+<p>I have applied several algorithms for this purpose minmax, alphabet pruning,
+  MTD-inf and MTD-bi, but for the purpose of this article I will just tell you 
+  about minmax.</p>
+
+<p>The minmax algorithm is a greedy algorithm that approaches the problem without
+ any finesse. The only idea on which it is based is that the white player will 
+ make his moves in order to maximize the evaluation function, while the black player 
+ to minimize.</p>
+
+<p>The first step is to “unfold” the wire tree to the maximum depth we want to reach 
+ (in example 4), evaluate the leaves with our evaluation function and then reconstruct 
+ the best path from the bottom, remembering that the black player (represented by the 
+ diamonds in the graph below) minimizes, while the white player (represented by the 
+ ellipse-shaped nodes) maximizes.</p>
+
+<figure>
+ <img src="/images/minmax_movie.gif" width="100%" />
+  <figcaption>min max algorithm example</figcaption>
+  </figure>
+
+<h3 id="lets-see-it-in-action-agains-beth-harmon">Let’s see it in action agains Beth Harmon</h3>
+
+<p>The website chess.com offers the possibility to play against bots inspired by Beth Harmon.
+So, with the help of selenium I made my chess engine interface with the site so that
+automatically the two bots can clash.</p>
+
+<figure>
+ <img src="/images/win_beth_9.gif" width="100%" />
+  <figcaption>My algorithm VS Beth Harmon at 9 years old</figcaption>
+  </figure>
+<p><br /></p>
+
+<p>If you would try to beat yourserlf Beth Harmon with python please check 
+<a href="https://github.com/glep93/python_chess_engine">my repository.</a></p>
 
   </div><a class="u-url" href="/2020/01/03/how-to-beat-beth-harmon.html" hidden></a>
 </article>
