@@ -61,7 +61,7 @@ Third semester in Paris at a consortium involving Universities Pierre et Marie C
   * Optimization, inference and learning in biological systems (Aleksandra Walczak and Thierry Mora
 * Internship at COBBS LAB/ ISC-CNR Rome
 
-###### Thesis:
+##### Thesis:
 Critical dynamics of a non-dissipative statistical model for the description of biological systems 110 cum laude
 
 #### B.SC Physics
