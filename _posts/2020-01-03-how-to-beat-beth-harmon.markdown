@@ -6,10 +6,7 @@ date:   2020-01-03 00:00:00
 layout: post
 ---
 
-After the success of *The queen's gambit* the chess game acquired a new success. The web
-site *chess.com* offers the possibility to play with bots that play like Beth Harmon
-at different ages. To face this challenge I developed a small chess engine able to
-play with *chess.com* bots.  
+After the success of *The queen's gambit* the game of chess has been rediscovered by a lot of players. The web-site *chess.com* offers the possibility to play with bots that play like Beth Harmon at different ages. To face this challenge I developed a small chess engine able to play with *chess.com* bots.  
 
 ### The chess engine
 
@@ -46,9 +43,7 @@ legal moves leading from one configuration to the next.
 
 In principle, if you can write the entire game tree of a game you have just resolved the chess game,
 you can look at the tree to find the best move in any situation. The only problem
-is that the game tree for chess is huge, it is estimated that it is more than 10<sup>120</sup> (https://en.wikipedia.org/wiki/Shannon_number) considering that the estimation of atoms in the universe is  10<sup>80</sup>! So clearly it is not possible to write down the entire chess game
-tree. A solution is to compute the game tree only for a certain number of possible
-moves from the current position (in 1997 deep blue search to a depth of between 12 and 16 moves).
+is that the game tree for chess is huge, it is estimated that it is more than 10<sup>120</sup> (https://en.wikipedia.org/wiki/Shannon_number) considering that the estimation of atoms in the universe is  10<sup>80</sup>! So clearly it is not possible to write down the entire chess game tree. A solution is to compute the game tree only for a certain number of possible moves from the current position (in 1997 deep blue search to a depth of between 12 and 16 moves).
 
 The leaves of a game-tree are end-game configurations with the win of one of the two players or a draw.
 If you compute the game tree only at a certain depth you need an **evaluation function**
