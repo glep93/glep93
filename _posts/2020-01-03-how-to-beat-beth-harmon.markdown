@@ -2,6 +2,7 @@
 title:  "How to beat Beth Harmon"
 subtitle: "Develop a chess engine and let it play on chess.com"
 image: "images/chess.jpg"
+imagebg: "images/bg_chess.jpg"
 date:   2020-01-03 00:00:00
 layout: post
 ---

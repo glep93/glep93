@@ -8,8 +8,8 @@
 <meta property="og:title" content="How to beat Beth Harmon" />
 <meta name="author" content="Luca Grandinetti" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="After the success of The queen’s gambit the chess game acquired a new success. The web site chess.com offers the possibility to play with bots that play like Beth Harmon at different ages. To face this challenge I developed a small chess engine able to play with chess.com bots." />
-<meta property="og:description" content="After the success of The queen’s gambit the chess game acquired a new success. The web site chess.com offers the possibility to play with bots that play like Beth Harmon at different ages. To face this challenge I developed a small chess engine able to play with chess.com bots." />
+<meta name="description" content="After the success of The queen’s gambit the game of chess has been rediscovered by a lot of players. The web-site chess.com offers the possibility to play with bots that play like Beth Harmon at different ages. To face this challenge I developed a small chess engine able to play with chess.com bots." />
+<meta property="og:description" content="After the success of The queen’s gambit the game of chess has been rediscovered by a lot of players. The web-site chess.com offers the possibility to play with bots that play like Beth Harmon at different ages. To face this challenge I developed a small chess engine able to play with chess.com bots." />
 <link rel="canonical" href="http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html" />
 <meta property="og:url" content="http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html" />
 <meta property="og:site_name" content="Luca Grandinetti’s Portfolio" />
@@ -17,22 +17,20 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-01-03T01:00:00+01:00" />
 <script type="application/ld+json">
-{"image":"http://localhost:4000/images/chess.jpg","@type":"BlogPosting","url":"http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html","author":{"@type":"Person","name":"Luca Grandinetti"},"headline":"How to beat Beth Harmon","dateModified":"2020-01-03T01:00:00+01:00","datePublished":"2020-01-03T01:00:00+01:00","description":"After the success of The queen’s gambit the chess game acquired a new success. The web site chess.com offers the possibility to play with bots that play like Beth Harmon at different ages. To face this challenge I developed a small chess engine able to play with chess.com bots.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html"},"@context":"https://schema.org"}</script>
+{"image":"http://localhost:4000/images/chess.jpg","@type":"BlogPosting","url":"http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html","author":{"@type":"Person","name":"Luca Grandinetti"},"headline":"How to beat Beth Harmon","dateModified":"2020-01-03T01:00:00+01:00","datePublished":"2020-01-03T01:00:00+01:00","description":"After the success of The queen’s gambit the game of chess has been rediscovered by a lot of players. The web-site chess.com offers the possibility to play with bots that play like Beth Harmon at different ages. To face this challenge I developed a small chess engine able to play with chess.com bots.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Luca Grandinetti's Portfolio" /><!-- custom head -->
 
 <link rel="icon" href="https://glep93.github.io/glep93/images/avatar.jpg" type="image/jpg" />
 <link rel="shortcut icon" href="https://glep93.github.io/glep93/images/avatar.jpg"  type="image/x-icon">
 
-<link rel="stylesheet" href="https://glep93.github.io/glep93/assets/css/main.css" />
+<link rel="stylesheet" href="/assets/css/main.css" />
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 </head>
-<body>
-
-<header id="header">
+<body><header id="header"  style="background-image: url('/images/bg_chess.jpg');">
   <a href= /index.html >
   <div class="inner">
-   <h1> <strong> Luca Grandinetti </strong> <br>  Data Scientist Consultant <br> Design and development of machine learning models	</h1>
+   <h1> <strong> Luca Grandinetti  </strong> <br>  Data Scientist Consultant <br> Design and development of machine learning models	</h1>
     </div>
   </a>
 </header>
@@ -50,10 +48,7 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>After the success of <em>The queen’s gambit</em> the chess game acquired a new success. The web
-site <em>chess.com</em> offers the possibility to play with bots that play like Beth Harmon
-at different ages. To face this challenge I developed a small chess engine able to
-play with <em>chess.com</em> bots.</p>
+    <p>After the success of <em>The queen’s gambit</em> the game of chess has been rediscovered by a lot of players. The web-site <em>chess.com</em> offers the possibility to play with bots that play like Beth Harmon at different ages. To face this challenge I developed a small chess engine able to play with <em>chess.com</em> bots.</p>
 
 <h3 id="the-chess-engine">The chess engine</h3>
 
@@ -90,9 +85,7 @@ legal moves leading from one configuration to the next.</p>
 
 <p>In principle, if you can write the entire game tree of a game you have just resolved the chess game,
 you can look at the tree to find the best move in any situation. The only problem
-is that the game tree for chess is huge, it is estimated that it is more than 10<sup>120</sup> (https://en.wikipedia.org/wiki/Shannon_number) considering that the estimation of atoms in the universe is  10<sup>80</sup>! So clearly it is not possible to write down the entire chess game
-tree. A solution is to compute the game tree only for a certain number of possible
-moves from the current position (in 1997 deep blue search to a depth of between 12 and 16 moves).</p>
+is that the game tree for chess is huge, it is estimated that it is more than 10<sup>120</sup> (https://en.wikipedia.org/wiki/Shannon_number) considering that the estimation of atoms in the universe is  10<sup>80</sup>! So clearly it is not possible to write down the entire chess game tree. A solution is to compute the game tree only for a certain number of possible moves from the current position (in 1997 deep blue search to a depth of between 12 and 16 moves).</p>
 
 <p>The leaves of a game-tree are end-game configurations with the win of one of the two players or a draw.
 If you compute the game tree only at a certain depth you need an <strong>evaluation function</strong>
@@ -162,7 +155,7 @@ automatically the two bots can clash.</p>
 </div>
 
 
-<footer id="footer">
+<footer id="footer" style="background-image: url('/images/bg_chess.jpg');">
   <div class="inner">
     <ul class="icons">
       <li><a href="https://www.linkedin.com/in/luca-glep-grandinetti/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>

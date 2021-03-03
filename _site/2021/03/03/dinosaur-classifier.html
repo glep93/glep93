@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Dinosaur Classifier | Luca Grandinetti’s Portfolio</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Dinosaur Classifier" />
+<meta name="author" content="Luca Grandinetti" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I was born in the year Jurassic Park was released and when I was 4 years old the US remake of Godzilla was distibuted. This means that as a child, like many of my generation, I was obsessed with large reptiles! Back in the day I was a bit confused about the different types of dinosaurs (T-rex, brontosaurus, stregosaurus, triceratops), which is why today I have developed an image dinosaur classifier that can also recognize the king of monsters from prehistoric reptiles." />
+<meta property="og:description" content="I was born in the year Jurassic Park was released and when I was 4 years old the US remake of Godzilla was distibuted. This means that as a child, like many of my generation, I was obsessed with large reptiles! Back in the day I was a bit confused about the different types of dinosaurs (T-rex, brontosaurus, stregosaurus, triceratops), which is why today I have developed an image dinosaur classifier that can also recognize the king of monsters from prehistoric reptiles." />
+<link rel="canonical" href="http://localhost:4000/2021/03/03/dinosaur-classifier.html" />
+<meta property="og:url" content="http://localhost:4000/2021/03/03/dinosaur-classifier.html" />
+<meta property="og:site_name" content="Luca Grandinetti’s Portfolio" />
+<meta property="og:image" content="http://localhost:4000/images/dino.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-03T01:00:00+01:00" />
+<script type="application/ld+json">
+{"image":"http://localhost:4000/images/dino.jpg","@type":"BlogPosting","url":"http://localhost:4000/2021/03/03/dinosaur-classifier.html","author":{"@type":"Person","name":"Luca Grandinetti"},"headline":"Dinosaur Classifier","dateModified":"2021-03-03T01:00:00+01:00","datePublished":"2021-03-03T01:00:00+01:00","description":"I was born in the year Jurassic Park was released and when I was 4 years old the US remake of Godzilla was distibuted. This means that as a child, like many of my generation, I was obsessed with large reptiles! Back in the day I was a bit confused about the different types of dinosaurs (T-rex, brontosaurus, stregosaurus, triceratops), which is why today I have developed an image dinosaur classifier that can also recognize the king of monsters from prehistoric reptiles.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021/03/03/dinosaur-classifier.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Luca Grandinetti's Portfolio" /><!-- custom head -->
+
+<link rel="icon" href="https://glep93.github.io/glep93/images/avatar.jpg" type="image/jpg" />
+<link rel="shortcut icon" href="https://glep93.github.io/glep93/images/avatar.jpg"  type="image/x-icon">
+
+<link rel="stylesheet" href="/assets/css/main.css" />
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body><header id="header"  style="background-image: url('/images/bg_dino.jpg');">
+  <a href= /index.html >
+  <div class="inner">
+   <h1> <strong> Luca Grandinetti  </strong> <br>  Data Scientist Consultant <br> Design and development of machine learning models	</h1>
+    </div>
+  </a>
+</header>
+
+<div id="main">
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Dinosaur Classifier</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2021-03-03T01:00:00+01:00" itemprop="datePublished">
+        Mar 3, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>I was born in the year Jurassic Park was released and when I was 4 years old the US 
+remake of Godzilla was distibuted. This means that as a child, like many of my 
+generation, I was obsessed with large reptiles! Back in the day I was a bit confused 
+about the different types of dinosaurs (T-rex, brontosaurus, stregosaurus, triceratops),
+which is why today I have developed an image dinosaur classifier that can also recognize
+the king of monsters from prehistoric reptiles.</p>
+
+<h3 id="in-the-beginning-was-the-data">In the beginning was the Data</h3>
+
+<p>The first thing you need to do in order to train a classifier is to collect data.
+ Unfortunately, the public datasets focus much more on irises than dinosaurs, 
+ which is why I decided to build the training set with data extracted 
+ via a web scraper.</p>
+
+<p>To use it, you can use my notebook available <a href="https://github.com/glep93/google_image_scraper/blob/main/Scrap%20images.ipynb">here.</a></p>
+
+<p>The web scraper search on google the dinosaur and save all images related to it. All this 
+images will be labelled as the search string. This means that an image found searching 
+the world ‘T-rex’ is classified as ‘T-rex’.</p>
+
+<h3 id="the-classifier">The classifier</h3>
+
+<p>Developing a classifier from scratch is definitely something very elegant, but transfer 
+learning nowadays is the best and fastest way to create an image classifier.</p>
+
+<p>The architecture of this model is very simple, the first non-drawable layer extracts the
+ main features of the image and is taken from 
+ <a href="https://tfhub.dev/google/tf2-preview/mobilenet_v2/feature_vector/4">here</a>,
+ while a second dense layer is trained to identify the different classes 
+ (T-rex, brontosaurus, stregosaurus, triceratops and Godzilla) to which the image belongs.</p>
+
+<p>Once the model was trained, I just download it and use on the web app. You can find the
+ colab notebook of the model <a href="https://colab.research.google.com/drive/1F0MHvQg_WqShmLh7J-fIgEvJQM-AjRb-?usp=sharing">here</a></p>
+
+<h3 id="the-web-app">The web app</h3>
+
+<p>Streamlit is one of the latest frameworks for creating apps in python. Its philosophy is 
+to develop apps the same way you write plain Python scripts.</p>
+
+<p>The web app will read the uploaded image, then the classifier trained before will give its
+prediction. At this point the user can say what the correct answer is and update the confusion matrix of the model.</p>
+
+<p>The complete app can be found at <a href="http://dinoclassifier.ml">dinoclassifier.ml</a>.</p>
+
+
+  </div><a class="u-url" href="/2021/03/03/dinosaur-classifier.html" hidden></a>
+</article>
+
+      </div>
+    </main>
+</div>
+
+
+<footer id="footer" style="background-image: url('/images/bg_dino.jpg');">
+  <div class="inner">
+    <ul class="icons">
+      <li><a href="https://www.linkedin.com/in/luca-glep-grandinetti/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+      <li><a href="https://github.com/glep93/" class="icon brands fa-github"><span class="label">Github</span></a></li>
+      <li><a href="mailto:luca.glep.grandinetti@gmail.com"  class="icon solid fa-envelope"><span class="label">Github</span></a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src= "https://glep93.github.io/glep93/assets/js/jquery.min.js"        " ></script>
+<script src= "https://glep93.github.io/glep93/assets/js/jquery.poptrox.min.js"" ></script>
+<script src= "https://glep93.github.io/glep93/assets/js/browser.min.js"       " ></script>
+<script src= "https://glep93.github.io/glep93/assets/js/breakpoints.min.js"   " ></script>
+<script src= "https://glep93.github.io/glep93/assets/js/util.js"              " ></script>
+<script src= "https://glep93.github.io/glep93/assets/js/main.js"              " ></script>
+</body>
+
+</html>

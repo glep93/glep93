@@ -1,7 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-27T21:46:02+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Luca Grandinetti’s Portfolio</title><subtitle>Data Scientist Consultant | Design and development of machine learning models</subtitle><author><name>Luca Grandinetti</name></author><entry><title type="html">How to beat Beth Harmon</title><link href="http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html" rel="alternate" type="text/html" title="How to beat Beth Harmon" /><published>2020-01-03T01:00:00+01:00</published><updated>2020-01-03T01:00:00+01:00</updated><id>http://localhost:4000/2020/01/03/how-to-beat-beth-harmon</id><content type="html" xml:base="http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html">&lt;p&gt;After the success of &lt;em&gt;The queen’s gambit&lt;/em&gt; the chess game acquired a new success. The web
-site &lt;em&gt;chess.com&lt;/em&gt; offers the possibility to play with bots that play like Beth Harmon
-at different ages. To face this challenge I developed a small chess engine able to
-play with &lt;em&gt;chess.com&lt;/em&gt; bots.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-04T00:20:54+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Luca Grandinetti’s Portfolio</title><subtitle>Data Scientist Consultant | Design and development of machine learning models</subtitle><author><name>Luca Grandinetti</name></author><entry><title type="html">Dinosaur Classifier</title><link href="http://localhost:4000/2021/03/03/dinosaur-classifier.html" rel="alternate" type="text/html" title="Dinosaur Classifier" /><published>2021-03-03T01:00:00+01:00</published><updated>2021-03-03T01:00:00+01:00</updated><id>http://localhost:4000/2021/03/03/dinosaur-classifier</id><content type="html" xml:base="http://localhost:4000/2021/03/03/dinosaur-classifier.html">&lt;p&gt;I was born in the year Jurassic Park was released and when I was 4 years old the US 
+remake of Godzilla was distibuted. This means that as a child, like many of my 
+generation, I was obsessed with large reptiles! Back in the day I was a bit confused 
+about the different types of dinosaurs (T-rex, brontosaurus, stregosaurus, triceratops),
+which is why today I have developed an image dinosaur classifier that can also recognize
+the king of monsters from prehistoric reptiles.&lt;/p&gt;
+
+&lt;h3 id=&quot;in-the-beginning-was-the-data&quot;&gt;In the beginning was the Data&lt;/h3&gt;
+
+&lt;p&gt;The first thing you need to do in order to train a classifier is to collect data.
+ Unfortunately, the public datasets focus much more on irises than dinosaurs, 
+ which is why I decided to build the training set with data extracted 
+ via a web scraper.&lt;/p&gt;
+
+&lt;p&gt;To use it, you can use my notebook available &lt;a href=&quot;https://github.com/glep93/google_image_scraper/blob/main/Scrap%20images.ipynb&quot;&gt;here.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The web scraper search on google the dinosaur and save all images related to it. All this 
+images will be labelled as the search string. This means that an image found searching 
+the world ‘T-rex’ is classified as ‘T-rex’.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-classifier&quot;&gt;The classifier&lt;/h3&gt;
+
+&lt;p&gt;Developing a classifier from scratch is definitely something very elegant, but transfer 
+learning nowadays is the best and fastest way to create an image classifier.&lt;/p&gt;
+
+&lt;p&gt;The architecture of this model is very simple, the first non-drawable layer extracts the
+ main features of the image and is taken from 
+ &lt;a href=&quot;https://tfhub.dev/google/tf2-preview/mobilenet_v2/feature_vector/4&quot;&gt;here&lt;/a&gt;,
+ while a second dense layer is trained to identify the different classes 
+ (T-rex, brontosaurus, stregosaurus, triceratops and Godzilla) to which the image belongs.&lt;/p&gt;
+
+&lt;p&gt;Once the model was trained, I just download it and use on the web app. You can find the
+ colab notebook of the model &lt;a href=&quot;https://colab.research.google.com/drive/1F0MHvQg_WqShmLh7J-fIgEvJQM-AjRb-?usp=sharing&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;the-web-app&quot;&gt;The web app&lt;/h3&gt;
+
+&lt;p&gt;Streamlit is one of the latest frameworks for creating apps in python. Its philosophy is 
+to develop apps the same way you write plain Python scripts.&lt;/p&gt;
+
+&lt;p&gt;The web app will read the uploaded image, then the classifier trained before will give its
+prediction. At this point the user can say what the correct answer is and update the confusion matrix of the model.&lt;/p&gt;
+
+&lt;p&gt;The complete app can be found at &lt;a href=&quot;http://dinoclassifier.ml&quot;&gt;dinoclassifier.ml&lt;/a&gt;.&lt;/p&gt;</content><author><name>Luca Grandinetti</name></author><summary type="html">I was born in the year Jurassic Park was released and when I was 4 years old the US remake of Godzilla was distibuted. This means that as a child, like many of my generation, I was obsessed with large reptiles! Back in the day I was a bit confused about the different types of dinosaurs (T-rex, brontosaurus, stregosaurus, triceratops), which is why today I have developed an image dinosaur classifier that can also recognize the king of monsters from prehistoric reptiles.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/dino.jpg" /><media:content medium="image" url="http://localhost:4000/images/dino.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to beat Beth Harmon</title><link href="http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html" rel="alternate" type="text/html" title="How to beat Beth Harmon" /><published>2020-01-03T01:00:00+01:00</published><updated>2020-01-03T01:00:00+01:00</updated><id>http://localhost:4000/2020/01/03/how-to-beat-beth-harmon</id><content type="html" xml:base="http://localhost:4000/2020/01/03/how-to-beat-beth-harmon.html">&lt;p&gt;After the success of &lt;em&gt;The queen’s gambit&lt;/em&gt; the game of chess has been rediscovered by a lot of players. The web-site &lt;em&gt;chess.com&lt;/em&gt; offers the possibility to play with bots that play like Beth Harmon at different ages. To face this challenge I developed a small chess engine able to play with &lt;em&gt;chess.com&lt;/em&gt; bots.&lt;/p&gt;
 
 &lt;h3 id=&quot;the-chess-engine&quot;&gt;The chess engine&lt;/h3&gt;
 
@@ -38,9 +77,7 @@ legal moves leading from one configuration to the next.&lt;/p&gt;
 
 &lt;p&gt;In principle, if you can write the entire game tree of a game you have just resolved the chess game,
 you can look at the tree to find the best move in any situation. The only problem
-is that the game tree for chess is huge, it is estimated that it is more than 10&lt;sup&gt;120&lt;/sup&gt; (https://en.wikipedia.org/wiki/Shannon_number) considering that the estimation of atoms in the universe is  10&lt;sup&gt;80&lt;/sup&gt;! So clearly it is not possible to write down the entire chess game
-tree. A solution is to compute the game tree only for a certain number of possible
-moves from the current position (in 1997 deep blue search to a depth of between 12 and 16 moves).&lt;/p&gt;
+is that the game tree for chess is huge, it is estimated that it is more than 10&lt;sup&gt;120&lt;/sup&gt; (https://en.wikipedia.org/wiki/Shannon_number) considering that the estimation of atoms in the universe is  10&lt;sup&gt;80&lt;/sup&gt;! So clearly it is not possible to write down the entire chess game tree. A solution is to compute the game tree only for a certain number of possible moves from the current position (in 1997 deep blue search to a depth of between 12 and 16 moves).&lt;/p&gt;
 
 &lt;p&gt;The leaves of a game-tree are end-game configurations with the win of one of the two players or a draw.
 If you compute the game tree only at a certain depth you need an &lt;strong&gt;evaluation function&lt;/strong&gt;
@@ -100,4 +137,4 @@ automatically the two bots can clash.&lt;/p&gt;
 &lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;If you would try to beat yourserlf Beth Harmon with python please check
-&lt;a href=&quot;https://github.com/glep93/python_chess_engine&quot;&gt;my repository.&lt;/a&gt;&lt;/p&gt;</content><author><name>Luca Grandinetti</name></author><summary type="html">After the success of The queen’s gambit the chess game acquired a new success. The web site chess.com offers the possibility to play with bots that play like Beth Harmon at different ages. To face this challenge I developed a small chess engine able to play with chess.com bots.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/chess.jpg" /><media:content medium="image" url="http://localhost:4000/images/chess.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;a href=&quot;https://github.com/glep93/python_chess_engine&quot;&gt;my repository.&lt;/a&gt;&lt;/p&gt;</content><author><name>Luca Grandinetti</name></author><summary type="html">After the success of The queen’s gambit the game of chess has been rediscovered by a lot of players. The web-site chess.com offers the possibility to play with bots that play like Beth Harmon at different ages. To face this challenge I developed a small chess engine able to play with chess.com bots.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/chess.jpg" /><media:content medium="image" url="http://localhost:4000/images/chess.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
