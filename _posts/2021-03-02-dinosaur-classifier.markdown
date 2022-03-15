@@ -49,7 +49,7 @@ to develop apps the same way you write plain Python scripts.
 The web app will read the uploaded image, then the classifier trained before will give its
 prediction. At this point the user can say what the correct answer is and update the confusion matrix of the model.
 
-The complete app can be found at [dinoclassifier.ml](http://dinoclassifier.ml).
+The complete app can be found at [dinosaurclassifier.ml](http://dinosaurclassifier.ml/).
 
 
  
